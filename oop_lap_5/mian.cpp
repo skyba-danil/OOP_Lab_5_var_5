@@ -9,6 +9,7 @@ using namespace std;
 void setInfo(CarDrive**);
 void sort(CarDrive** drive);
 void printInf(CarDrive** drive);
+int getSumPrice(CarDrive** obj);
 
 int main()
 {
@@ -18,6 +19,18 @@ int main()
 	cout << "\nSort inf\n";
 	sort(drive);
 	printInf(drive);
+	cout << "The most profitable drive is: " << drive[MAXN - 1] << endl;;
+	cout << "Sum price is: " << getSumPrice(drive);
+}
+
+int getSumPrice(CarDrive** obj)
+{
+	int sum;
+	for (int i = 0; i < MAXN; i++)
+	{
+		sum += obj[i]->PriceOfDrive();
+	}
+	return sum;
 }
 
 void printInf(CarDrive** drive)
